@@ -21,3 +21,13 @@ export async function fetchStarships() {
       starships: starshipsDetailed,
       isLoading: false,
     })
+  } catch (error) {
+    console.error('Error fetching starships:', error)
+    store.setState({
+      ...store.getState(),
+      error: error.message,
+      isLoading: false,
+      starships: [],
+    })
+  }
+}
