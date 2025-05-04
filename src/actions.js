@@ -1,3 +1,7 @@
+/**
+ * Actions are functions that retrieve and manipulate data,
+ * then update the store state in a reactive manner.
+ */
 import store from './store'
 
 export async function fetchStarships() {
