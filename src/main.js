@@ -6,3 +6,7 @@ import store from './store'
 
 const APP_CLASS_NAME =
   'bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center'
+
+const Main = (state) => {
+  return StarshipList(state.starships)
+}
