@@ -17,3 +17,12 @@ function createStore(initialState = {}) {
 
   return { getState, setState, subscribe }
 }
+
+const store = createStore({
+  appElement: document.getElementById('app'),
+  starships: [],
+  isLoading: false,
+  error: null,
+})
+
+export default store
