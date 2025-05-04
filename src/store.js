@@ -9,3 +9,11 @@ function createStore(initialState = {}) {
 
     listeners.forEach((listener) => listener(state))
   }
+
+  const subscribe = (listener) => {
+    listeners.add(listener)
+    return () => listeners.delete(listener)
+  }
+
+  return { getState, setState, subscribe }
+}
