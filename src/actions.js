@@ -15,3 +15,9 @@ export async function fetchStarships() {
     })
 
     const starshipsDetailed = await Promise.all(starshipPromises)
+
+    store.setState({
+      ...store.getState(),
+      starships: starshipsDetailed,
+      isLoading: false,
+    })
