@@ -10,3 +10,21 @@ const APP_CLASS_NAME =
 const Main = (state) => {
   return StarshipList(state.starships)
 }
+function App() {
+  const render = (state) => {
+    state.appElement.className = APP_CLASS_NAME
+
+    let content = ''
+
+    if (state.error) content = `<p class="text-red-500 text-center p-4">${state.error}</p>`
+    else if (state.isLoading) content = `<p class="text-center p-4">Loading starships...</p>`
+    else if (!state.starships.length) content = `<p class="text-center p-4">No starships found</p>`
+    else content = Main(state)
+
+    state.appElement.innerHTML = `
+      ${Header()}
+      <main class="container mx-auto p-4 max-w-6xl">
+        ${content}
+      </main>
+    `
+  }
