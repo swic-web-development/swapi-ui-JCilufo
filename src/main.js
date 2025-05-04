@@ -28,3 +28,14 @@ function App() {
       </main>
     `
   }
+
+  render(store.getState())
+
+  // Subscribe to state changes
+  store.subscribe(render)
+
+  // Fetch initial data
+  fetchStarships()
+}
+
+App()
